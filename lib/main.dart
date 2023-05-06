@@ -10,11 +10,6 @@ import 'Attendance.dart';
 import 'adminlogin.dart';
 import 'courses.dart';
 import 'ebooks_veiw.dart';
-import 'faculty_page.dart';
-import 'images_page.dart';
-import 'newsfeed_page.dart';
-import 'ConvexAppExample.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 
 void main() async {

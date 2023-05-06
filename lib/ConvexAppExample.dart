@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'faculty_page.dart';
 import 'images_page.dart';
 import 'newsfeed_page.dart';
+import 'images_u.dart';
+import 'images_v.dart';
 
 class ConvexAppExample extends StatefulWidget {
   const ConvexAppExample({super.key});
@@ -20,7 +22,7 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
     if (ci == 1) {
       cen = FacultyPage();
     } else if (ci == 2) {
-      cen = ImagesPage();
+      cen = ImagesView();
     } else {
       cen = const NewsfeedPage();
     }
@@ -57,6 +59,4 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
       ),
     );
   }
-
-  
 }
