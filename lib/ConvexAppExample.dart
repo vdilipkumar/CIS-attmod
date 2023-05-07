@@ -17,6 +17,8 @@ class ConvexAppExample extends StatefulWidget {
 
 class _ConvexAppExampleState extends State<ConvexAppExample> {
   final TabStyle _tabStyle = TabStyle.reactCircle;
+  PageController pc = PageController(initialPage: 0);
+  int ci = 0;
   Widget cen = const NewsfeedPage();
   void setty(int ci) {
     if (ci == 1) {
@@ -34,28 +36,65 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
       length: 5,
       initialIndex: 0,
       child: Scaffold(
-        body: Column(
+        body: PageView(
+          controller: pc,
           children: [
-            // _buildStyleSelector(),
-            Expanded(
-              child: cen,
+            Container(
+              child: NewsfeedPage(),
+            ),
+            Container(
+              child: FacultyPage(),
+            ),
+            Container(
+              child: ImagesView(),
             ),
           ],
+          onPageChanged: (int ind) {
+            setState(() {
+              ci = ind;
+            });
+          },
         ),
         // body: cen,
-        bottomNavigationBar: ConvexAppBar.badge(
-            // Optional badge argument: keys are tab indices, values can be
-            // String, IconData, Color or Widget.
-            const <int, dynamic>{1: ''},
-            style: _tabStyle,
-            items: const <TabItem>[
-              TabItem(icon: Icons.newspaper, title: "feed"),
-              TabItem(icon: Icons.person_pin, title: "faculty"),
-              TabItem(icon: Icons.image, title: "events"),
-            ],
-            onTap: (int i) => setState(() {
-                  setty(i);
-                })),
+        bottomNavigationBar: //ConvexAppBar.badge(
+            //   // Optional badge argument: keys are tab indices, values can be
+            //   // String, IconData, Color or Widget.
+            //   const <int, dynamic>{1: ''},
+            //   // initialActiveIndex: ci,
+            //   style: _tabStyle,
+            //   items: const <TabItem>[
+            //     TabItem(icon: Icons.newspaper, title: "feed"),
+            //     TabItem(icon: Icons.person_pin, title: "faculty"),
+            //     TabItem(icon: Icons.image, title: "events"),
+            //   ],
+            BottomNavigationBar(
+          backgroundColor: Color.fromARGB(255, 40, 38, 38),
+          currentIndex: ci,
+          selectedIconTheme: IconThemeData(size: 42),
+          unselectedIconTheme: IconThemeData(size: 36),
+          unselectedItemColor: Color.fromARGB(255, 234, 228, 228),
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_pin),
+              label: 'Faculty',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.image),
+              label: 'event',
+            ),
+          ],
+          onTap: (int index) {
+            setState(() {
+              ci = index;
+              pc.animateToPage(index,
+                  duration: Duration(milliseconds: 500), curve: Curves.ease);
+            });
+          },
+        ),
       ),
     );
   }

@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 
-class coursesPage extends StatelessWidget {
+class coursesPage extends StatefulWidget {
+  const coursesPage({Key? key}) : super(key: key);
+
+  @override
+  courses_Page createState() => courses_Page();
+}
+
+class courses_PageState {}
+
+class courses_Page extends State<coursesPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Courses',
       home: Scaffold(
         appBar: AppBar(
@@ -109,5 +119,11 @@ class coursesPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    throw UnimplementedError();
   }
 }

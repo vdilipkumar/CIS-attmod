@@ -2,22 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:minor/AdminHomePage.dart';
 import 'package:minor/services/auth_service.dart';
-// class adminlogin extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'admin login',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       initialRoute: LoginPage.routeName, // set initial route to LoginPage
-//       routes: {
-//         LoginPage.routeName: (ctx) => LoginPage(),
-//         AdminHomePage.routeName: (ctx) => AdminHomePage(), // add AdminHomePage route
-//       },
-//     );
-//   }
-// }
 class LoginPage extends StatefulWidget {
   static const routeName = '/login';
 

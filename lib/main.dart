@@ -36,16 +36,15 @@ class MyApp extends StatelessWidget {
           return HomePage();
         },
       ),
-      // darkTheme: ThemeData(
-      //   brightness: Brightness.dark,
-      //   primaryColor: Colors.blue[900],
-      //   colorScheme:
-      //       ColorScheme.fromSwatch().copyWith(secondary: Colors.redAccent),
-      // ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: Colors.blue[900],
+        //   colorScheme:
+        //       ColorScheme.fromSwatch().copyWith(secondary: Colors.redAccent),
+      ),
     );
   }
 }
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 

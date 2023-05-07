@@ -46,16 +46,16 @@ class _facultypageState extends State<Attendance> {
   Future<void> _getAttendance() async {
     final username = _usernameController.text;
     final password = _passwordController.text;
-    // Navigate to the login page
     setState(() {
       be = !be;
     });
+    // Navigate to the login page
     await _webViewController.future.then((controller) {
       controller
           .loadUrl('https://automation.vnrvjiet.ac.in/EduPrime3/VNRVJIET');
     });
     // Wait for the login page to load and enter the credentials and click the login button
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 5));
     await _webViewController.future.then((controller) async {
       await controller.runJavascript(
         "document.getElementsByName('UserName')[0].value = '$username';"
@@ -71,7 +71,7 @@ class _facultypageState extends State<Attendance> {
       );
     });
     // Wait for the attendance page to load and get the attendance percentage
-    await Future.delayed(Duration(seconds: 5));
+    await Future.delayed(Duration(seconds: 10));
     await _webViewController.future.then((controller) async {
       final attendancePercentage =
           await controller.runJavascriptReturningResult(
